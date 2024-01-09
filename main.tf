@@ -1,10 +1,10 @@
-#module "tag-1" {
+# module "tag-1" {
  # source         = "git::https://devmterror:MfR84WZ82yHz4frpqRzp@bitbucket.org/morrisonsplc/platform-terraform-aws-tagging.git?ref=v1.0.0"
  # mandatory_tags = var.mandatory_tags
   #optional_tags  = var.optional_tags
   #custom_tags    = var.custom_tags
   #region         = var.region
-}
+# }
 
 #resource "random_string" "main" {
 #  length = 10
@@ -12,7 +12,7 @@
 #  upper  = false
 #  numeric = false
  # special = false
-}
+# }
 
 resource "aws_s3_bucket" "main" {
   bucket = "m${module.tag-1.null_resource["environment"]}.${module.tag-1.null_resource["project"]}.${module.tag-1.null_resource["application"]}.${random_string.main.result}"
